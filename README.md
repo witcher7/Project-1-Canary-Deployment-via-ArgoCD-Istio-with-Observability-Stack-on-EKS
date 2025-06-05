@@ -25,3 +25,18 @@ Kiali: Visualizes traffic.
 Jaeger: Traces request flows—see who hits v1 vs. v2.
 
 Prometheus/Grafana: Live metrics/alerts—see if error rates/latency spike.
+
+### FLOW OF ARCH.
+
+User
+ ↓
+[Istio IngressGateway]
+ ↓
+[Istio VirtualService splits traffic 80% v1, 20% v2]
+ ↓                             ↓
+[Node.js v1 Pods]           [Node.js v2 Pods]
+ ↑        ↑
+Kiali    Jaeger
+ ↑        ↑
+Prometheus/Grafana monitor everything
+ArgoCD manages everything via GitOps
