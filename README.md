@@ -27,7 +27,7 @@ Jaeger: Traces request flows—see who hits v1 vs. v2.
 Prometheus/Grafana: Live metrics/alerts—see if error rates/latency spike.
 
 ### FLOW OF ARCH.
-
+```
 User
  ↓
 [Istio IngressGateway]
@@ -40,3 +40,4 @@ Kiali    Jaeger
  ↑        ↑
 Prometheus/Grafana monitor everything
 ArgoCD manages everything via GitOps
+```
